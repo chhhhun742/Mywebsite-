@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Website</title>
+
+<style>
+body{
+text-align:center;
+font-family:Arial,sans-serif;
+margin-top:50px;
+background:linear-gradient(135deg,#f0f8ff,#e6f7ff);
+}
+
+img{
+width:300px;
+border-radius:15px;
+box-shadow:0 0 15px rgba(0,0,0,0.2);
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+margin-top:20px;
+cursor:pointer;
+border:none;
+border-radius:25px;
+color:white;
+animation:colorChange 3s infinite;
+}
+
+@keyframes colorChange{
+0%{background:#ff6b6b;}
+25%{background:#4ecdc4;}
+50%{background:#45b7d1;}
+75%{background:#96ce5c;}
+100%{background:#ff6b6b;}
+}
+</style>
+
+</head>
+<body>
+
+<h2>Welcome To Naiti Dada Website</h2>
+
+<img src="photo.jpg" alt="Photo">
+
+<br><br>
+
+<button onclick="playSound()">Next Photo</button>
+
+<audio id="mysound">
+<source src="sound.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playSound(){
+document.getElementById("mysound").play();
+}
+
+history.pushState(null, null, location.href);
+
+window.onpopstate = function(){
+history.pushState(null, null, location.href);
+};
+
+setTimeout(function(){
+window.onpopstate = null;
+}, 5000);
+</script>
+
+</body>
+</html>
